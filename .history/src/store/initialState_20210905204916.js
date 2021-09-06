@@ -1,7 +1,5 @@
 const initialState = {
-    loading: false,
-    error: false,
-    jokes: []
+    jokes: ["a", "b"]
 };
 
 export default initialState;

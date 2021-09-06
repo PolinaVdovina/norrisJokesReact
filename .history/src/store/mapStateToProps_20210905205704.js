@@ -3,9 +3,7 @@ function mapStateToProps(component) {
         case "MainPage": {
             return (state) => {
                 return {
-                    norrisJokes: state.jokes,
-                    loading: state.loading,
-                    error: state.error
+                    norrisJokes: state.jokes
                 };
             }
         }

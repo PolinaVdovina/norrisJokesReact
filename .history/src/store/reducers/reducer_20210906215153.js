@@ -6,19 +6,22 @@ export default function reducer(state = initialState, action) {
       case LOADING_JOKE:
         return {
             ...state,
+            url: '',
             loading: true,
             error: false,
         };
       case LOAD_JOKE_SUCCESS:
         return {
             ...state,
+            url: action.url,
             loading: false,
             error: false,
-            jokes: [...state.jokes, action.joke]
+            jokes: action.jokes
         };
       case LOAD_JOKE_FAILED:
         return {
             ...state,
+            url: '',
             loading: false,
             error: true,
         };

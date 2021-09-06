@@ -9,7 +9,7 @@ export function JokeLoading() {
 export function SaveJoke(value) {
     return {
       type: LOAD_JOKE_SUCCESS,
-      joke: value
+      jokes: value
     };
 }
 

@@ -5,28 +5,25 @@ import { MoreButton } from './MoreButton';
 import { connect, useDispatch } from 'react-redux';
 import mapStateToProps from '../store/mapStateToProps';
 import mapDispatchToProps from '../store/mapDispatchToProps';
-import { FetchJokes } from '../store/actionCreators/action';
+import { SaveJoke } from '../store/actionCreators/action';
+
+const axios = require('axios').default;
 
 const MainPageRaw = (props) => {
     const dispatch = useDispatch();
 
     const loadJoke = () => {
-        dispatch(FetchJokes());
+        axios.get("https://api.chucknorris.io/jokes/random").then(response => 
+            dispatch(SaveJoke([...props.norrisJokes, response.data.value]))
+        );
     }
     
     return(
         <div class="page">
-            {props.loading 
-                ? <p>Loading...</p> 
-                : props.error
-                    ? <p>Error, try again</p>
-                    : <div class="page">
-                        <MoreButton loadJoke={loadJoke}/>
-                        {props.norrisJokes.map(joke => 
-                            <JokeCard text={joke}/>
-                        )} 
-                    </div> 
-            }              
+            <MoreButton loadJoke={loadJoke}/>
+            {props.norrisJokes.map(joke => 
+                <JokeCard text={joke}/>
+            )}                
         </div>
     )
 }

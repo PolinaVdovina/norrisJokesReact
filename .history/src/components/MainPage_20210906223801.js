@@ -20,7 +20,7 @@ const MainPageRaw = (props) => {
                 ? <p>Loading...</p> 
                 : props.error
                     ? <p>Error, try again</p>
-                    : <div class="page">
+                    : <div>
                         <MoreButton loadJoke={loadJoke}/>
                         {props.norrisJokes.map(joke => 
                             <JokeCard text={joke}/>

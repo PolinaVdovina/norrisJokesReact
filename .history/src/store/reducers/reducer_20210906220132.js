@@ -14,7 +14,7 @@ export default function reducer(state = initialState, action) {
             ...state,
             loading: false,
             error: false,
-            jokes: [...state.jokes, action.joke]
+            jokes: action.jokes
         };
       case LOAD_JOKE_FAILED:
         return {

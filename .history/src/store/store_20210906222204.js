@@ -1,7 +1,6 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import reducer from './reducers/reducer'
-import { watchFetchJokes } from './saga/sagas'
-import createSagaMiddleware from 'redux-saga'
+import mySaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
@@ -9,6 +8,6 @@ const store = createStore(
     applyMiddleware(sagaMiddleware)
 );
 
-sagaMiddleware.run(watchFetchJokes)
+sagaMiddleware.run(mySaga)
 
 export default store;
