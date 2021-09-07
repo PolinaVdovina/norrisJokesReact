@@ -6,8 +6,8 @@ import createSagaMiddleware from 'redux-saga'
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
     reducer,
-    reHydrateStore(),
-    applyMiddleware(sagaMiddleware, localStorageMiddleware)
+    //reHydrateStore(),
+    applyMiddleware(sagaMiddleware/*, localStorageMiddleware*/)
 );
 
 sagaMiddleware.run(watchFetchJokes)

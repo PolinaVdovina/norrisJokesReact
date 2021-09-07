@@ -15,6 +15,7 @@ export function* fetchJokeAsync() {
                 .then(response => response.data.value);
         });
         yield put(SaveJoke(data));
+        yield call(() => localStorage.setItem("jokes", ))
     } catch (error) {
         yield put(JokeLoadingFailed());
     }    

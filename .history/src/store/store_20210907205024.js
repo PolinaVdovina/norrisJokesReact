@@ -6,7 +6,7 @@ import createSagaMiddleware from 'redux-saga'
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
     reducer,
-    reHydrateStore(),
+    //reHydrateStore(),
     applyMiddleware(sagaMiddleware, localStorageMiddleware)
 );
 

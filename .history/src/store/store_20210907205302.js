@@ -2,14 +2,15 @@ import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducers/reducer'
 import { localStorageMiddleware, reHydrateStore, watchFetchJokes } from './saga/sagas'
 import createSagaMiddleware from 'redux-saga'
+import sagas from '../saga/sagas';
 
 const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
     reducer,
-    reHydrateStore(),
+    reHydrateStore,
     applyMiddleware(sagaMiddleware, localStorageMiddleware)
 );
 
-sagaMiddleware.run(watchFetchJokes)
+sagaMiddleware.run(sagas)
 
 export default store;
